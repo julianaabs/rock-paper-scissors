@@ -8,17 +8,17 @@
 
 </head>
 <body>
-	<h1>Rock-Paper-Scissors by Jujuba's Games</h1>
-	<div class="images">
-		<img src="rock.png" width="200" height="200">
-		<img  src="paper.png" width="200" height="200">
-		<img  src="scissors.png" width="200" height="200">
-	</div>
+	<div class="bodyPage">
+		<h1>Rock-Paper-Scissors by Jujuba's Games</h1>
+		<div id="gameImages" class="images">
+			<img src="rock.png" width="200" height="200">
+			<img  src="paper.png" width="200" height="200">
+			<img  src="scissors.png" width="200" height="200">
+		</div>
 	
-	<br>
-	<div>
-		<button onclick="enterPlayer()">Rock</button>
-		<button onclick="clickPaper()">Paper</button>
-		<button onclick="clickScissors()">Scissors</button>
+		<br>
+		<div id="playGame">
+			<button id="playButton" class="buttons" onclick="setJogador()">Play Game!</button>
+		</div>
 	</div>
 </body>
