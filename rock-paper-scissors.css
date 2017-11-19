@@ -6,21 +6,11 @@ h1{
 
 body{
 	/* background-image: url("background.gif"); */
-	background-color: black;
+	background-color: white;
 }
 
-.bodyPage{
-	justify-content: center;
-	text-align: center;
-}
 
-.rock{
-	margin: center;
-	display: block;
-	padding: 5px;
-}
-
-.buttons{
+button{
 	/* visibility: hidden; */
 	background-color: #8A2BE2;
     border: none;
@@ -34,14 +24,9 @@ body{
     cursor: pointer;
 }
 
-.images{
-	/*visibility: hidden; */
-	margin: auto;
+table, th, tr{
+	border: 5px black solid;
+	border-collapse: collapse;
 	justify-content: center;
-	background-color: white;
-	max-width: 800px;
-	max-height: 300px;
-}
-
-.playGame{
+	margin: auto;
 }

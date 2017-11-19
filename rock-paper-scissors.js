@@ -1,65 +1,52 @@
-function Jogador(nome, genero, tipoJogador){
-	this.nome = nome;
-	this.genero = genero;
-	this.tipoJogador = tipoJogador;
+function Jogador(name, gender, typePlayer){
+	this.name = name;
+	this.gender = gender;
+	this.typePlayer = typePlayer;
+	this.jogadaPlayer = 0;
+	this.jogadaPC = 0;
+	this.result = 0;
+	this.points = 0;
 	
-}
-
-function getRandom(min, max){
-	return Math.random() * (max-min) + min;
-}
-
-
-
-function setJogador(){
-	var player1 = new Jogador();
-	while(player1.nome == "" || !(player1.nome)){
-		player1.nome = prompt("Informe seu nome: ");
+	this.getName = function(){
+		return this.name;
 	}
-	while(player1.genero == "" || !(player1.genero)){
-		player1.genero = prompt("Informe seu gênero: ");
+
+	this.getGender = function(){
+		return this.gender;
 	}
-	/*$("#sexo").dialog({
-		autoOpen: true,
-		buttons:{
-			Feminino: function(){
-				player1.sexo = "Feminino";
-			},
-			Masculino: function(){
-				player1.sexo = "Masculino";
-			}
-		},
-		width: "300px"
-	}); */
-	player1.tipoJogador = "Pessoa";
 
-	var computer = new Jogador();
-	computer.nome = "Computer";
-	computer.genero = "None";
-	computer.tipoJogador = "Computador"
+	this.getTypePlayer = function(){
+		return this.typePlayer;
+	}
 
-	console.log(player1);
-	console.log(computer);
+	this.getPoints = function(){
+		return this.points;
+	}
+
+	this.setPoints = function(points){
+		this.points += points;
+	}
+
+	this.jogadaPC = function(){
+		return Math.random() * (4-1) + 1;
+	}
+
 }
 
-
-
-function opcaoSelecionada(){
-	if(tipoJogador == "Pessoa"){
-		return "";
-	}else{
-		return getRandom(1, 4);
+function getGenderButton(){
+	var radios = document.getElementsByName("gender");
+	for (var i = 0; i < radios.length; i++){
+		if(radios[i].check == true){
+			return radios[i].value;
+		}
 	}
 }
 
-function hidePlayButton(){
-	var y = document.getElementById("playGame");
-	var x = document.getElementById("playButton").addEventListener("click", function(){
-		if (y.style.display === "none") {
-        	y.style.display = "block";
-    	} else {
-        	y.style.display = "none";
-    	}
-	});
-    
+function playGame(){
+	var nome = document.getElementById('nomePlayer').value;
+	var genero = getGenderButton();
+
+	player = new Jogador(nome, genero, "Pessoa");
+
+	console.log(player);
 }
