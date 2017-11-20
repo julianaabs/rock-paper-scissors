@@ -2,6 +2,7 @@ var player;
 var computer;
 var allPlayers = [];
 var allComputers = [];
+var match;
 
 function Jogador(name, gender, typePlayer){
 	this.name = name;
@@ -12,6 +13,7 @@ function Jogador(name, gender, typePlayer){
 	//this.jogadaPC = 0;
 	this.result = 0;
 	this.points = 0;
+	this.match = 0;
 	
 	this.getName = function(){
 		return this.name;
@@ -53,6 +55,13 @@ function Jogador(name, gender, typePlayer){
 		return Math.floor((Math.random() * 3) + 1);;
 	}
 
+	this.getMatch = function() {
+    	return this.partida;
+    }
+    this.setMatch = function() {
+    	this.partida = this.partida + 1;
+    }
+
 }
 
 function getGenderButton(){
@@ -81,6 +90,8 @@ function playGame(){
 	else{
 		player = new Jogador(nome, genero, "Pessoa");
 		computer = new Jogador("Computer", "Masculino", "Computador");
+		allPlayers.push(player);
+		allComputers.push(computer);
 	}
 
 	console.log(player);
@@ -102,6 +113,7 @@ function game(jogada){
 	var cell1 = row.insertCell(0); 
 	var cell2 = row.insertCell(1);
 	var cell3 = row.insertCell(2);
+	player.setMatch();
 	player.setJogada(jogada);
 	player.setJogadaPlayer(player.getJogadaPlayer());
 	computer.setJogada(computer.jogadaPC());
@@ -186,6 +198,7 @@ function game(jogada){
 }
 
 function endGame(){
+	alert(finalResult());
 	var tableHeaderRowCount = 0;
 	var table = document.getElementById('score');
 	var rowCount = table.rows.length;
@@ -194,4 +207,12 @@ function endGame(){
 	}
 	player = null;
 	computer = null;
+}
+
+function finalResult(){
+	if(player.getPoints() > computer.getPoints()){
+		return "YOU WIN!";
+	}else{
+		return "YOU LOSE!";
+	}
 }
