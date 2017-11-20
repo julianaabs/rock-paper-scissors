@@ -27,11 +27,6 @@
 	</div>
 
 	<div id="gameOn">
-		<!--<div clas="images">
-			<img src="rock.png" width="80" height="80" align="left">
-			<img src="paper.png" width="80" height="80" align="left">
-			<img src="scissors.png" width="80" height="80" align="left">
-		</div> -->
 		<br>
 		<button onclick="game(1)">Rock</button>
 		<button onclick="game(2)"> Paper</button>
@@ -41,6 +36,14 @@
 		<div id="gameOff">
 			<button onclick="endGame()">End Game!</button>
 		</div>
+		<div>
+			<h4>Matches:</h4>
+			<p id="numberMatch"></p>
+			<br>
+			<h4>Result:</h4>
+			<p id="matchResult"></p>
+			<br>
+		</div>
 		<table id="score">
 			<tr>
 				<td>Your Points</td>
@@ -49,5 +52,4 @@
 				</tr>
 		</table>
 	</div>
-
 </body>

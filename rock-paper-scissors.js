@@ -10,7 +10,6 @@ function Jogador(name, gender, typePlayer){
 	this.typePlayer = typePlayer;
 	this.jogada;
 	this.jogadaPlayer = [];
-	//this.jogadaPC = 0;
 	this.result = 0;
 	this.points = 0;
 	this.match = 0;
@@ -56,10 +55,10 @@ function Jogador(name, gender, typePlayer){
 	}
 
 	this.getMatch = function() {
-    	return this.partida;
+    	return this.match;
     }
     this.setMatch = function() {
-    	this.partida = this.partida + 1;
+    	this.match = this.match + 1;
     }
 
 }
@@ -77,35 +76,36 @@ function playGame(){
 	var nome = document.getElementById('nomePlayer').value;
 	var genero = getGenderButton();
 
-	if(allPlayers.length > 0){
-		for(var i = 0; i < allPlayers.length; i++){
+	var x = allPlayers.length;
+
+	if(x > 0){
+		for(var i = 0; i < x; i++){
 			if(allPlayers[i].getName() == nome){
+				player.setMatch();
+				computer.setMatch();
 				player = allPlayers[i];
 				computer = allComputers[i];
-				allPlayers.push(i, 1);
-				allComputers.push(i, 1);
+				allPlayers.splice(i, 1);
+				allComputers.splice(i, 1);
+			}else{
+				player = new Jogador(nome, genero, "Pessoa");
+				computer = new Jogador("Computer", "Masculino", "Computador");
+				computer.setMatch();
+				computer.setMatch();
 			}
 		}
 	}
 	else{
 		player = new Jogador(nome, genero, "Pessoa");
 		computer = new Jogador("Computer", "Masculino", "Computador");
-		allPlayers.push(player);
-		allComputers.push(computer);
+		player.setMatch();
+		computer.setMatch();
 	}
-
+	cleanResult();
 	console.log(player);
 }
 
-/*var table = document.getElementById("myTable");
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    cell1.innerHTML = "NEW CELL1";
-    cell2.innerHTML = "NEW CELL2"; */
-
-function game(jogada){
-	
+function game(jogada){	
 	//document.getElementById('initialScreen').style.display = "none";
 	//document.getElementById('gameOn').style.display = "block";
 	var table = document.getElementById('score');
@@ -113,7 +113,6 @@ function game(jogada){
 	var cell1 = row.insertCell(0); 
 	var cell2 = row.insertCell(1);
 	var cell3 = row.insertCell(2);
-	player.setMatch();
 	player.setJogada(jogada);
 	player.setJogadaPlayer(player.getJogadaPlayer());
 	computer.setJogada(computer.jogadaPC());
@@ -198,21 +197,29 @@ function game(jogada){
 }
 
 function endGame(){
-	alert(finalResult());
+	finalResult();
 	var tableHeaderRowCount = 0;
 	var table = document.getElementById('score');
 	var rowCount = table.rows.length;
 	for (var i = tableHeaderRowCount; i < rowCount-1; i++) {
     	table.deleteRow(tableHeaderRowCount);
 	}
-	player = null;
-	computer = null;
+
+	allPlayers.push(player);
+	allComputers.push(computer);
 }
 
 function finalResult(){
+	document.getElementById('numberMatch').innerHTML = player.getMatch();
+
 	if(player.getPoints() > computer.getPoints()){
-		return "YOU WIN!";
+		document.getElementById('matchResult').innerHTML = "You win!";
 	}else{
-		return "YOU LOSE!";
+		document.getElementById('matchResult').innerHTML = "You lose!";
 	}
+}
+
+function cleanResult(){
+	document.getElementById('numberMatch').innerHTML = "";
+	document.getElementById('matchResult').innerHTML = "";
 }

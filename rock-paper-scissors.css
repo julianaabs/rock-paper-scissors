@@ -2,10 +2,11 @@ h1{
 	text-align: center;
 	color: #8A2BE2;
 	font-family: "Century Gothic";
+	background-color: white;
 }
 
 body{
-	/* background-image: url("background.gif"); */
+	background-image: url("back.jpg");
 	background-color: white;
 	justify-content: center;
 	margin: auto;
@@ -13,7 +14,6 @@ body{
 
 
 button{
-	/* visibility: hidden; */
 	background-color: #8A2BE2;
     border: none;
     color: white;
@@ -43,6 +43,7 @@ div#gameOff{
 	justify-content: center;
 	margin: auto;
 	text-align: center;
+	background-color: white;
 }
 
 .gameImages{
@@ -66,6 +67,7 @@ div#gameOn{
 	justify-content: center;
 	margin: auto;
 	text-align: center;
+	background-color: white;
 	/*display: none; */
 }
 
@@ -74,12 +76,14 @@ input#genderMale{
 	text-align: center;
 	color: #8A2BE2;
 	font-family: "Century Gothic";
+	background-color: white;
 }
 
 input#genderFemale{
 	text-align: center;
 	color: #8A2BE2;
 	font-family: "Century Gothic";
+	background-color: white;
 }
 
 table{
