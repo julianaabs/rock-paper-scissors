@@ -8,8 +8,13 @@
 
 </head>
 <body>
-	<div id="initialScreen">
-		<h1>Rock Paper Scissors</h1>
+	<h1>Rock Paper Scissors</h1>
+	<div id="gameImages" class="images">
+ 		<img src="rock.png" width="200" height="200">
+ 		<img  src="paper.png" width="200" height="200">
+ 		<img  src="scissors.png" width="200" height="200">
+ 	</div>
+	<div id="initialScreen">	
 		Nome:<input type="text" id="nomePlayer">
 		<br>
 		<input type="radio" name="gender" id="genderMale">Masculino
@@ -18,5 +23,31 @@
 		<br>
 		<button id="playGame" onclick="playGame()" >Play Game!</button>
 		<br>
+		<br>
 	</div>
+
+	<div id="gameOn">
+		<!--<div clas="images">
+			<img src="rock.png" width="80" height="80" align="left">
+			<img src="paper.png" width="80" height="80" align="left">
+			<img src="scissors.png" width="80" height="80" align="left">
+		</div> -->
+		<br>
+		<button onclick="game(1)">Rock</button>
+		<button onclick="game(2)"> Paper</button>
+		<button onclick="game(3)">Scissors</button>
+		<br>
+		<br>
+		<div id="gameOff">
+			<button onclick="endGame()">End Game!</button>
+		</div>
+		<table id="score">
+			<tr>
+				<td>Your Points</td>
+				<td>Computer Points</td>
+				<td>Result</td>
+				</tr>
+		</table>
+	</div>
+
 </body>

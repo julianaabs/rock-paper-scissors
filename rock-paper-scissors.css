@@ -1,12 +1,14 @@
 h1{
 	text-align: center;
 	color: #8A2BE2;
-	font-family: "Century Gothic"
+	font-family: "Century Gothic";
 }
 
 body{
 	/* background-image: url("background.gif"); */
 	background-color: white;
+	justify-content: center;
+	margin: auto;
 }
 
 
@@ -29,4 +31,66 @@ table, th, tr{
 	border-collapse: collapse;
 	justify-content: center;
 	margin: auto;
+}
+
+div#initialScreen{
+	justify-content: center;
+	margin: auto;
+	text-align: center;
+}
+
+div#gameOff{
+	justify-content: center;
+	margin: auto;
+	text-align: center;
+}
+
+.gameImages{
+	margin: auto;
+	justify-content: center;
+	max-height: 150px;
+	max-width: 150px;
+}
+
+.images{
+	/*visibility: hidden; */
+ 	margin: auto;
+	justify-content: center;
+	background-color: white;
+	max-width: 800px;
+	max-height: 300px;
+	text-align: center;
+}
+
+div#gameOn{
+	justify-content: center;
+	margin: auto;
+	text-align: center;
+	/*display: none; */
+}
+
+
+input#genderMale{
+	text-align: center;
+	color: #8A2BE2;
+	font-family: "Century Gothic";
+}
+
+input#genderFemale{
+	text-align: center;
+	color: #8A2BE2;
+	font-family: "Century Gothic";
+}
+
+table{
+	border: 1px solid black;
+    background-color: white;
+    width: 75%;
+    font-family: "Century Gothic";
+}
+
+td, th, td{
+	border: 1px solid black;
+	width: 75%;
+	color: #8A2BE2;	
 }
